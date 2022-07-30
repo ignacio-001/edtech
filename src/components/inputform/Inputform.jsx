@@ -2,17 +2,17 @@ import React from "react";
 import { useState } from "react";
 import { NativeSelect } from "@mui/material";
 const Inputform = (handleform) => {
-  const [questions, setquestions] = useState("");
+  const [questions, setquestions] = useState(['']);
   const [topic, settopic] = useState("");
   const [classid, setclassid] = useState("");
   const [date, setdate] = useState("");
   const [questionid, setquestionid] = useState("");
   const addquestion = () => {
-    setquestions([...questions, questionid]);
+    setquestions(prevNames => [...prevNames, questionid])
     setquestionid("");
   };
   const handleinput = () => {
-    handleform(topic,questions,classid,date);
+    // handleform(topic,questions,classid,date);
     console.log(date);
     console.log(topic);
     console.log(classid);
@@ -32,13 +32,22 @@ const Inputform = (handleform) => {
         />
         <br />
         <input
-          id="questiona"
+          id="question"
           name="questions"
           type="text"
           placeholder="questions"
           onChange={(event) => setquestionid(event.target.value)}
           value={questionid}
         />
+        <div className="questions">
+        {questions.map((element, index) => {
+        return (
+          <div key={index}>
+            <h2>{element}</h2>
+          </div>
+        );
+      })}
+        </div>
         <button onClick={addquestion}>Add questions</button>
         <br />
         <NativeSelect
