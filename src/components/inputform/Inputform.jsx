@@ -12,11 +12,11 @@ const Inputform = (handleform) => {
     setquestionid("");
   };
   const handleinput = () => {
-    // handleform(topic,questions,classid,date);
-    // console.log(date);
-    // console.log(topic);
+    handleform(topic,questions,classid,date);
+    console.log(date);
+    console.log(topic);
     console.log(classid);
-    // console.log(questions);
+    console.log(questions);
   };
 
   return (
@@ -43,15 +43,11 @@ const Inputform = (handleform) => {
         <br />
         <NativeSelect
           defaultValue={30}
-          inputProps={{
-            name: "age",
-            id: "uncontrolled-native",
-          }}
-        >
-          <option value={classid}>class1_secA</option>
-          <option value={classid}>class1_secB</option>
-          <option value={classid}>class1_secC</option>
           onChange={(event) => setclassid(event.target.value)}
+        >
+          <option value={1}>class1_secA</option>
+          <option value={2}>class1_secB</option>
+          <option value={3}>class1_secC</option>
           value={classid}
         </NativeSelect>
         <input
