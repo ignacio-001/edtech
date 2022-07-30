@@ -9,7 +9,7 @@ const Inputform = (handleform) => {
   const [questionid, setquestionid] = useState("");
   const addquestion=()=>{
     setquestions([...questions, questionid]);
-    questionid('')
+    setquestionid('')
   }
 
   return (
@@ -47,8 +47,9 @@ const Inputform = (handleform) => {
           <option value={2}>class1_secB</option>
           <option value={3}>class1_secC</option>
           onChange={(event) => setclassid(event.target.value)}
+          value={classid}
         </NativeSelect>
-        <input type="date" onChange={(event) => setdate(event.target.value)} />
+        <input type="date"  onChange={(event) => setdate(event.target.value)} value={date} />
         {/* <button
           type="submit"
           onClick={handleform(questions, topic, classid, date)}
