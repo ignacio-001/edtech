@@ -7,10 +7,17 @@ const Inputform = (handleform) => {
   const [classid, setclassid] = useState("");
   const [date, setdate] = useState("");
   const [questionid, setquestionid] = useState("");
-  const addquestion=()=>{
+  const addquestion = () => {
     setquestions([...questions, questionid]);
-    setquestionid('')
-  }
+    setquestionid("");
+  };
+  const handleinput = () => {
+    // handleform(topic,questions,classid,date);
+    // console.log(date);
+    // console.log(topic);
+    console.log(classid);
+    // console.log(questions);
+  };
 
   return (
     <>
@@ -32,9 +39,7 @@ const Inputform = (handleform) => {
           onChange={(event) => setquestionid(event.target.value)}
           value={questionid}
         />
-        <button onClick={addquestion}>
-          Add questions
-        </button>
+        <button onClick={addquestion}>Add questions</button>
         <br />
         <NativeSelect
           defaultValue={30}
@@ -43,19 +48,20 @@ const Inputform = (handleform) => {
             id: "uncontrolled-native",
           }}
         >
-          <option value={1}>class1_secA</option>
-          <option value={2}>class1_secB</option>
-          <option value={3}>class1_secC</option>
+          <option value={classid}>class1_secA</option>
+          <option value={classid}>class1_secB</option>
+          <option value={classid}>class1_secC</option>
           onChange={(event) => setclassid(event.target.value)}
           value={classid}
         </NativeSelect>
-        <input type="date"  onChange={(event) => setdate(event.target.value)} value={date} />
-        {/* <button
-          type="submit"
-          onClick={handleform(questions, topic, classid, date)}
-        >
+        <input
+          type="date"
+          onChange={(event) => setdate(event.target.value)}
+          value={date}
+        />
+        <button type="submit" onClick={handleinput}>
           Submit form
-        </button> */}
+        </button>
       </div>
     </>
   );
